@@ -10,7 +10,7 @@ let 我的VL密钥 = '7cb1afac-f9bc-445d-83d5-68329acd6261';//UUID
 let 反代IP = 'proxyip.cmliussss.net'; //反代IP
 
 export default {
-  async fetch(访问请求) {
+  async fetch(访问请求, env) {
     if (访问请求.headers.get('Upgrade') === 'websocket') {
       const 读取路径 = decodeURIComponent(访问请求.url.replace(/^https?:\/\/[^/]+/, ''));
       反代IP = 读取路径.match(/ip=([^&]+)/)?.[1] || 反代IP;
@@ -44,7 +44,7 @@ vless://${我的VL密钥}@188.114.96.0:443?encryption=none&security=tls&sni=${�
 更多节点使用手搓节点生成器： http://ip.cloudip.ggff.net`, { status: 200, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
         } else {
             // 其他路径返回404响应
-            return new Response('部署成功，使用你的路径查看节点信息！', { status: 404, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+            return env.ASSETS.fetch(访问请求);
         }
     }
   }
