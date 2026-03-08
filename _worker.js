@@ -8,7 +8,7 @@ import { connect } from 'cloudflare:sockets';
 
 let 我的VL密钥 = '7cb1afac-f9bc-445d-83d5-68329acd6261';//UUID
 let 反代IP = 'proxyip.cmliussss.net'; //反代IP
-let 我的访问暗号 = 'mytoken123'; //在此修改你的访问暗号（Token）
+let 我的访问暗号 = 'Sillw'; //在此修改你的访问暗号（Token）
 
 export default {
   async fetch(访问请求, env) {
